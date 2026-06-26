@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producción Académica - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+  <header class="navbar navbar-dark sticky-top bg-primary flex-md-nowrap p-2 shadow-sm">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 fw-bold" href="index.html">U CENFOTEC</a>
+    
+    <div class="d-flex align-items-center px-3">
+      <label class="text-white me-2 small d-none d-sm-block text-nowrap">Rol Simulado:</label>
+      <select id="roleSelector" class="form-select form-select-sm bg-light border-0" style="width: 160px;">
+        <option value="Administrador" selected>Administrador</option>
+        <option value="Docente">Docente</option>
+        <option value="Estudiante">Estudiante</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white sidebar collapse border-end p-0">
+        <div class="position-sticky pt-3">
+          <div class="px-3 mb-2 text-uppercase text-muted fw-bold" style="font-size: 0.75rem;">Principal</div>
+          <ul class="nav flex-column mb-4">
+            <li class="nav-item">
+              <a class="nav-link text-dark py-2 d-flex align-items-center gap-2" href="../index.html">
+                <i class="bi bi-speedometer2 text-secondary"></i> Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark py-2 d-flex align-items-center gap-2" href="./pages/producciones.html">
+                <i class="bi bi-file-earmark-text text-secondary"></i> Production Académica
+              </a>
+            </li>
+          </ul>
+
+          <div class="px-3 mb-2 text-uppercase text-muted fw-bold" style="font-size: 0.75rem;">Mantenimientos</div>
+          <ul class="nav flex-column mb-4">
+            <li class="nav-item">
+              <a class="nav-link text-dark py-2 d-flex align-items-center gap-2 fw-bold" href="./pages/mantenimiento.html">
+                <i class="bi bi-gear text-secondary"></i> Panel de Catálogos
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+        
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Dashboard</h1>
+        </div>
+
+        <div class="row g-4 mb-4">
+          
+          <div class="col-12 col-sm-6 col-xl-3">
+            <div class="card p-3 shadow-sm">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <div class="text-muted small mb-1">Producciones</div>
+                  <h3 class="mb-0 fw-bold" id="card-total-producciones">-</h3>
+                </div>
+                <div class="p-2 bg-light rounded text-primary fs-3">
+                  <i class="bi bi-file-earmark-text"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-xl-3" data-role-restricted="Administrador">
+            <div class="card p-3 shadow-sm">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <div class="text-muted small mb-1">Usuarios</div>
+                  <h3 class="mb-0 fw-bold" id="card-total-usuarios">-</h3>
+                </div>
+                <div class="p-2 bg-light rounded text-primary fs-3">
+                  <i class="bi bi-people"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-xl-3">
+            <div class="card p-3 shadow-sm">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <div class="text-muted small mb-1">Categorías</div>
+                  <h3 class="mb-0 fw-bold" id="card-total-categorias">-</h3>
+                </div>
+                <div class="p-2 bg-light rounded text-primary fs-3">
+                  <i class="bi bi-tags"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-xl-3">
+            <div class="card p-3 shadow-sm">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <div class="text-muted small mb-1">Áreas de Conocimiento</div>
+                  <h3 class="mb-0 fw-bold" id="card-total-areas">-</h3>
+                </div>
+                <div class="p-2 bg-light rounded text-primary fs-3">
+                  <i class="bi bi-book"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="data/dataDashboard.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/views/dashboard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
