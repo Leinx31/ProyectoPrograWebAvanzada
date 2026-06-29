@@ -1,22 +1,22 @@
 :root {
-  /* Marca */
+  
   --color-primary: #164A98;
   --color-primary-hover: #006AEA;
   --color-accent: #9CC8FF;
 
-  /* Fondos */
+  
   --color-background: #F8FAFC;
   --color-surface: #FFFFFF;
   --color-surface-alt: #EEF3F8;
 
-  /* Texto */
+  
   --color-text: #1F2937;
   --color-text-secondary: #6B7280;
 
-  /* Bordes */
+  
   --color-border: #D2D2D2;
 
-  /* Estados */
+  
   --color-success: #22C55E;
   --color-warning: #FACC15;
   --color-error: #DC2626;
@@ -28,7 +28,7 @@ body {
   font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* Sobrescritura de componentes de Bootstrap */
+
 .bg-primary {
   background-color: var(--color-primary) !important;
 }
@@ -59,7 +59,7 @@ body {
 }
 
 
-/* Utilidades de estado explícitas */
+
 .state-success { color: var(--color-success); }
 .state-warning { color: var(--color-warning); }
 .state-error { color: var(--color-error); }
@@ -73,11 +73,11 @@ body, html {
   min-height: 100vh;
 }
 
-/* Ajustes para la barra lateral */
+
 #sidebarMenu {
   min-height: 100vh;
   height: 100%;
   position: sticky;
-  top: 48px; /* Ajusta este valor según la altura exacta de tu Navbar para que no se solape */
+  top: 48px; 
   z-index: 100;
 }
