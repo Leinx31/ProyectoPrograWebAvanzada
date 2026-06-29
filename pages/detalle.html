@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle de Producción Académica</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body>
+
+  <header class="navbar navbar-dark sticky-top bg-primary flex-md-nowrap p-2 shadow-sm">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 fw-bold" href="../index.html">U CENFOTEC</a>
+    <div class="d-flex align-items-center px-3">
+      <label class="text-white me-2 small d-none d-sm-block text-nowrap">Rol Simulado:</label>
+      <select id="roleSelector" class="form-select form-select-sm bg-light border-0" style="width: 160px;">
+        <option value="Administrador" selected>Administrador</option>
+        <option value="Docente">Docente</option>
+        <option value="Estudiante">Estudiante</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white sidebar collapse border-end p-0">
+        <div class="position-sticky pt-3">
+          <div class="px-3 mb-2 text-uppercase text-muted fw-bold" style="font-size: 0.75rem;">Principal</div>
+          <ul class="nav flex-column mb-4">
+            <li class="nav-item">
+              <a class="nav-link text-dark py-2 d-flex align-items-center gap-2" href="../index.html">
+                <i class="bi bi-speedometer2 text-secondary"></i> Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark py-2 d-flex align-items-center gap-2" href="producciones.html">
+                <i class="bi bi-file-earmark-text text-secondary"></i> Producción Académica
+              </a>
+            </li>
+          </ul>
+          <div class="px-3 mb-2 text-uppercase text-muted fw-bold" style="font-size: 0.75rem;">Mantenimientos</div>
+          <ul class="nav flex-column mb-4">
+            <li class="nav-item">
+              <a class="nav-link text-dark py-2 d-flex align-items-center gap-2" href="mantenimiento.html">
+                <i class="bi bi-gear text-secondary"></i> Panel de Catálogos
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Detalle de Producción</h1>
+          <div class="d-flex gap-2">
+            <a href="producciones.html" class="btn btn-outline-secondary btn-sm">
+              <i class="bi bi-arrow-left"></i> Volver
+            </a>
+            <a id="btnEditar" href="#" class="btn btn-primary btn-sm d-none">
+              <i class="bi bi-pencil"></i> Editar
+            </a>
+          </div>
+        </div>
+
+        <div id="contenidoDetalle">
+          
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  
+  <div class="modal fade" id="modalEliminar" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title"><i class="bi bi-exclamation-triangle text-danger me-2"></i>Confirmar eliminación</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-muted">
+          ¿Está seguro de que desea eliminar esta producción académica? Esta acción no se puede deshacer.
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" onclick="confirmarEliminar()">
+            <i class="bi bi-trash me-1"></i> Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../data/dataDashboard.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/views/detalle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

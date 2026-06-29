@@ -24,7 +24,7 @@
 
   <div class="container-fluid">
     <div class="row">
-      
+
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white sidebar collapse border-end p-0">
         <div class="position-sticky pt-3">
           <div class="px-3 mb-2 text-uppercase text-muted fw-bold" style="font-size: 0.75rem;">Principal</div>
@@ -35,16 +35,15 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark py-2 d-flex align-items-center gap-2" href="./pages/producciones.html">
-                <i class="bi bi-file-earmark-text text-secondary"></i> Production Académica
+              <a class="nav-link active text-primary fw-bold py-2 d-flex align-items-center gap-2" href="producciones.html">
+                <i class="bi bi-file-earmark-text"></i> Producción Académica
               </a>
             </li>
           </ul>
-
           <div class="px-3 mb-2 text-uppercase text-muted fw-bold" style="font-size: 0.75rem;">Mantenimientos</div>
           <ul class="nav flex-column mb-4">
             <li class="nav-item">
-              <a class="nav-link text-dark py-2 d-flex align-items-center gap-2 fw-bold" href="./mantenimiento.html">
+              <a class="nav-link text-dark py-2 d-flex align-items-center gap-2" href="mantenimiento.html">
                 <i class="bi bi-gear text-secondary"></i> Panel de Catálogos
               </a>
             </li>
@@ -53,7 +52,7 @@
       </nav>
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
-        
+
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">Producción Académica</h1>
           <div data-role-restricted="Administrador,Docente">
@@ -65,11 +64,9 @@
 
         <div class="card p-3 mb-4 shadow-sm">
           <div class="row g-3">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-5">
               <div class="input-group">
-                <span class="input-group-text bg-white border-end-0 text-muted">
-                  <i class="bi bi-search"></i>
-                </span>
+                <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-search"></i></span>
                 <input type="text" id="inputBuscar" class="form-control border-start-0 ps-0" placeholder="Buscar por título o autor...">
               </div>
             </div>
@@ -79,6 +76,14 @@
                 <option value="Artículo Científico">Artículo Científico</option>
                 <option value="Tesis de Grado">Tesis de Grado</option>
                 <option value="Proyecto de Investigación">Proyecto de Investigación</option>
+                <option value="Manual Técnico">Manual Técnico</option>
+              </select>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+              <select id="selectEstado" class="form-select">
+                <option value="">Todos los estados</option>
+                <option value="Publicado">Publicado</option>
+                <option value="En Revisión">En Revisión</option>
               </select>
             </div>
           </div>
@@ -97,19 +102,14 @@
                   <th class="text-end">Acciones</th>
                 </tr>
               </thead>
-              <tbody id="tablaProducciones">
-                </tbody>
+              <tbody id="tablaProducciones"></tbody>
             </table>
           </div>
-          
-          <div class="card-footer bg-white d-flex justify-content-between align-items-center py-3">
-            <span class="text-muted small">Mostrando registros simulados</span>
+
+          <div class="card-footer bg-white d-flex justify-content-between align-items-center py-3 flex-wrap gap-2">
+            <span class="text-muted small" id="contadorResultados">Cargando...</span>
             <nav>
-              <ul class="pagination pagination-sm mb-0">
-                <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item disabled"><a class="page-link" href="#">Siguiente</a></li>
-              </ul>
+              <ul class="pagination pagination-sm mb-0" id="paginacionNav"></ul>
             </nav>
           </div>
         </div>

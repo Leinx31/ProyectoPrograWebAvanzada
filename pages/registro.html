@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar Producción Académica</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body>
+
+  <header class="navbar navbar-dark sticky-top bg-primary flex-md-nowrap p-2 shadow-sm">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 fw-bold" href="../index.html">U CENFOTEC</a>
+    <div class="d-flex align-items-center px-3">
+      <label class="text-white me-2 small d-none d-sm-block text-nowrap">Rol Simulado:</label>
+      <select id="roleSelector" class="form-select form-select-sm bg-light border-0" style="width: 160px;">
+        <option value="Administrador" selected>Administrador</option>
+        <option value="Docente">Docente</option>
+        <option value="Estudiante">Estudiante</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white sidebar collapse border-end p-0">
+        <div class="position-sticky pt-3">
+          <div class="px-3 mb-2 text-uppercase text-muted fw-bold" style="font-size: 0.75rem;">Principal</div>
+          <ul class="nav flex-column mb-4">
+            <li class="nav-item">
+              <a class="nav-link text-dark py-2 d-flex align-items-center gap-2" href="../index.html">
+                <i class="bi bi-speedometer2 text-secondary"></i> Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark py-2 d-flex align-items-center gap-2" href="producciones.html">
+                <i class="bi bi-file-earmark-text text-secondary"></i> Producción Académica
+              </a>
+            </li>
+          </ul>
+          <div class="px-3 mb-2 text-uppercase text-muted fw-bold" style="font-size: 0.75rem;">Mantenimientos</div>
+          <ul class="nav flex-column mb-4">
+            <li class="nav-item">
+              <a class="nav-link text-dark py-2 d-flex align-items-center gap-2" href="mantenimiento.html">
+                <i class="bi bi-gear text-secondary"></i> Panel de Catálogos
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Registrar Producción Académica</h1>
+          <a href="producciones.html" class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-arrow-left"></i> Volver al listado
+          </a>
+        </div>
+
+        
+        <div id="alertaExito" class="alert alert-success alert-dismissible fade d-none" role="alert">
+          <i class="bi bi-check-circle-fill me-2"></i>
+          <strong>¡Producción registrada!</strong> El registro se guardó correctamente.
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+
+        <div class="card shadow-sm p-4">
+          <div id="formularioRegistro">
+
+            <h6 class="text-muted text-uppercase mb-3" style="font-size: 0.75rem;">Información General</h6>
+            <div class="row g-3 mb-4">
+              <div class="col-12">
+                <label class="form-label fw-medium">Título <span class="text-danger">*</span></label>
+                <input type="text" id="inputTitulo" class="form-control" placeholder="Título de la producción académica">
+                <div class="invalid-feedback">El título es obligatorio.</div>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label fw-medium">Autor <span class="text-danger">*</span></label>
+                <input type="text" id="inputAutor" class="form-control" placeholder="Nombre del autor principal">
+                <div class="invalid-feedback">El autor es obligatorio.</div>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label fw-medium">Fecha de publicación <span class="text-danger">*</span></label>
+                <input type="date" id="inputFecha" class="form-control">
+                <div class="invalid-feedback">La fecha es obligatoria.</div>
+              </div>
+            </div>
+
+            <h6 class="text-muted text-uppercase mb-3" style="font-size: 0.75rem;">Clasificación</h6>
+            <div class="row g-3 mb-4">
+              <div class="col-12 col-md-6">
+                <label class="form-label fw-medium">Categoría <span class="text-danger">*</span></label>
+                <select id="selectCategoria" class="form-select">
+                  <option value="">Seleccione una categoría</option>
+                  <option>Artículo Científico</option>
+                  <option>Tesis de Grado</option>
+                  <option>Proyecto de Investigación</option>
+                  <option>Manual Técnico</option>
+                </select>
+                <div class="invalid-feedback">Seleccione una categoría.</div>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label fw-medium">Tipo de Investigación</label>
+                <select id="selectTipoInvestigacion" class="form-select">
+                  <option value="">Seleccione un tipo</option>
+                  <option>Aplicada</option>
+                  <option>Pura</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label fw-medium">Área de Conocimiento</label>
+                <select id="selectArea" class="form-select">
+                  <option value="">Seleccione un área</option>
+                  <option>Ingeniería de Software</option>
+                  <option>Ciberseguridad</option>
+                  <option>Inteligencia Artificial</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label fw-medium">Tecnología Principal</label>
+                <select id="selectTecnologia" class="form-select">
+                  <option value="">Seleccione una tecnología</option>
+                  <option>JavaScript Vanilla</option>
+                  <option>Python</option>
+                  <option>Docker</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label fw-medium">Carrera</label>
+                <select id="selectCarrera" class="form-select">
+                  <option value="">Seleccione una carrera</option>
+                  <option>Ingeniería del Software</option>
+                  <option>Desarrollo de Software</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label fw-medium">Línea de Investigación</label>
+                <select id="selectLinea" class="form-select">
+                  <option value="">Seleccione una línea</option>
+                  <option>Desarrollo Web Avanzado</option>
+                  <option>Automatización de Procesos</option>
+                </select>
+              </div>
+            </div>
+
+            <h6 class="text-muted text-uppercase mb-3" style="font-size: 0.75rem;">Descripción y Documento</h6>
+            <div class="row g-3 mb-4">
+              <div class="col-12">
+                <label class="form-label fw-medium">Resumen / Abstract <span class="text-danger">*</span></label>
+                <textarea id="inputResumen" class="form-control" rows="4" placeholder="Describa brevemente el contenido de la producción académica..."></textarea>
+                <div class="invalid-feedback">El resumen es obligatorio.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-medium">Documento PDF <span class="text-danger">*</span></label>
+                <input type="file" id="inputPDF" class="form-control" accept=".pdf">
+                <div class="form-text text-muted">Solo archivos PDF. Tamaño máximo: 10 MB.</div>
+                <div class="invalid-feedback">Debe adjuntar el documento PDF.</div>
+                <div id="previewPDF" class="mt-2 d-none">
+                  <div class="alert alert-light border d-flex align-items-center gap-2 py-2 mb-0">
+                    <i class="bi bi-file-earmark-pdf text-danger fs-5"></i>
+                    <span id="nombrePDF" class="small fw-medium"></span>
+                    <button type="button" class="btn btn-sm btn-outline-danger ms-auto" onclick="limpiarPDF()">
+                      <i class="bi bi-x"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2 pt-2 border-top">
+              <a href="producciones.html" class="btn btn-outline-secondary">Cancelar</a>
+              <button type="button" class="btn btn-primary" onclick="guardarProduccion()">
+                <i class="bi bi-floppy me-1"></i> Guardar Producción
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../data/dataDashboard.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/views/registro.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
